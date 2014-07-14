@@ -1,14 +1,17 @@
 public class BTree {
 	private Node root;
-	private int size;
 
-	public BTree() {
-		size = 0;
+	public BTree() {}
+	
+	public BTree(int[] A){
+		root = new Node(A[0]);
+		 for (int i = 1; i < A.length; i++) {
+				Insert(A[i]);
+			}
 	}
-
+	
 	public BTree(int rootKey) {
 		root = new Node(rootKey);
-		size = 1;
 	}
 
 	public void getInorderTreeWalk(Node A) {
@@ -23,7 +26,7 @@ public class BTree {
 		Node A = root;
 		if (A != null) {
 			getInorderTreeWalk(A.getLeft());
-			System.out.println(A.getKey() + "\t");
+			System.out.print(A.getKey() + "\t");
 			getInorderTreeWalk(A.getRight());
 		}
 	}
